@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+    <title>Index</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="jumbotron" style="margin-top: 25px;">
+            <h3>Add Company Form</h3>
+            <br>
+            <form method="POST" action="{% url 'my_check' %}">
+                <!--{{form_add_comp.errors}}-->
+                {{form_add_comp.as_p}}
+                {% csrf_token %}
+                <input type="submit" value="submit">
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>iam index.html from templates</h1>
+            <h3>Employees Table</h3>
+            {% if employees %}
+            <table class="table table-hover table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                <th>name</th>
+                <th>age</th>
+                <th>phone</th>
+                <th>email</th>
+                <th>company</th>
+                </tr>
+                </thead>
+
+                {% for row in employees %}
+                <tbody>
+                <tr>
+                    <td>{{row.name}}</td>
+                    <td>{{row.age}}</td>
+                    <td>{{row.phone}}</td>
+                    <td>{{row.email}}</td>
+                    <td>{{row.company}}</td>
+                </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+            {% else %}
+            <p>No Employees Found</p>
+            {% endif %}
+        </div>
+    </div>
+
+
+</div>
+
+
+<!--{{employees}}-->
+
+</body>
+</html>

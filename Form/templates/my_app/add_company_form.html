@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+    <title>Add Company Form</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="jumbotron" style="margin-top: 25px;">
+            <h3>Add Company Form</h3>
+            <br>
+            <form method="POST">
+                <!--{{form_add_comp.errors}}-->
+                {{form_add_comp.as_p}}
+                {% csrf_token %}
+                <input type="submit" value="submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

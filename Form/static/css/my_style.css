@@ -1,0 +1,15 @@
+/*{% load staticfiles %}*/
+body {
+    background-image: url(../images/bg_subtle_dots.png);
+}
+
+h1 {
+    color: red;
+    text-align: center;
+}
+
+form{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
